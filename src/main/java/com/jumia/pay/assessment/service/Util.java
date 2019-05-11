@@ -2,6 +2,7 @@ package com.jumia.pay.assessment.service;
 
 import com.jumia.pay.assessment.entity.Audit;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -10,10 +11,15 @@ import java.util.Date;
 public class Util {
 
     public String getIpAddress(HttpServletRequest servletRequest) {
+
         if (servletRequest == null)
             return "";
 
-        return servletRequest.getRemoteAddr();
+        String xForwardHeader = servletRequest.getHeader("X-Forwarded-For");
+        if (StringUtils.isEmpty(xForwardHeader)) {
+            return servletRequest.getRemoteAddr();
+        }
+        return xForwardHeader.split(",")[0];
     }
 
     public Audit prepareAuditObject(String actor, String actionType, String actionDescription, Object initialData, Object finalData, HttpServletRequest servletRequest) {

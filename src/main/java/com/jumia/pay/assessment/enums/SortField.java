@@ -1,6 +1,6 @@
 package com.jumia.pay.assessment.enums;
 
-public enum AuditFilter {
+public enum SortField {
 
     ipAddress,
     actor,

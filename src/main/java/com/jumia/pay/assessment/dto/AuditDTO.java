@@ -1,7 +1,7 @@
 package com.jumia.pay.assessment.dto;
 
 
-import com.jumia.pay.assessment.enums.AuditFilter;
+import com.jumia.pay.assessment.enums.SortField;
 import org.springframework.data.domain.Sort;
 
 import java.util.Date;
@@ -24,7 +24,7 @@ public class AuditDTO {
 
     private Integer pageSize = 10;
 
-    private AuditFilter auditFilter = AuditFilter.datePerformed;
+    private SortField sortField = SortField.datePerformed;
 
     private Sort.Direction sortOrder = Sort.Direction.ASC;
 
@@ -77,12 +77,12 @@ public class AuditDTO {
         this.pageSize = pageSize;
     }
 
-    public AuditFilter getAuditFilter() {
-        return auditFilter;
+    public SortField getSortField() {
+        return sortField;
     }
 
-    public void setAuditFilter(AuditFilter auditFilter) {
-        this.auditFilter = auditFilter;
+    public void setSortField(SortField sortField) {
+        this.sortField = sortField;
     }
 
     public Sort.Direction getSortOrder() {

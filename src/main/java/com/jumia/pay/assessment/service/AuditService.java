@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jumia.pay.assessment.dto.AuditDTO;
 import com.jumia.pay.assessment.entity.Audit;
-import com.jumia.pay.assessment.enums.AuditFilter;
+import com.jumia.pay.assessment.enums.SortField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,29 +62,29 @@ public class AuditService {
 
     public Page<Audit> searchAndFilterAudit(AuditDTO auditDTO) {
 
-        Pageable pageable = new PageRequest(auditDTO.getPageNo(), auditDTO.getPageSize(), auditDTO.getSortOrder(), auditDTO.getAuditFilter().toString());
+        Pageable pageable = new PageRequest(auditDTO.getPageNo(), auditDTO.getPageSize(), auditDTO.getSortOrder(), auditDTO.getSortField().toString());
 
         Query query = new Query().with(pageable);
 
         if (!StringUtils.isEmpty(auditDTO.getIpAddress())) {
-            query.addCriteria(Criteria.where(AuditFilter.ipAddress.toString()).regex(auditDTO.getIpAddress(), "i"));
+            query.addCriteria(Criteria.where(SortField.ipAddress.toString()).regex(auditDTO.getIpAddress(), "i"));
         }
 
         if (!StringUtils.isEmpty(auditDTO.getActor())) {
-            query.addCriteria(Criteria.where(AuditFilter.actor.toString()).regex(String.format(".*%s.*",auditDTO.getActor()), "i"));
+            query.addCriteria(Criteria.where(SortField.actor.toString()).regex(String.format(".*%s.*",auditDTO.getActor()), "i"));
         }
 
         if (!StringUtils.isEmpty(auditDTO.getActionDescription())) {
-            query.addCriteria(Criteria.where(AuditFilter.actionDescription.toString()).regex(String.format(".*%s.*",auditDTO.getActionDescription())));
+            query.addCriteria(Criteria.where(SortField.actionDescription.toString()).regex(String.format(".*%s.*",auditDTO.getActionDescription())));
         }
 
         if (!StringUtils.isEmpty(auditDTO.getActionType())) {
-            query.addCriteria(Criteria.where(AuditFilter.actionType.toString()).regex(auditDTO.getActionType(), "i"));
+            query.addCriteria(Criteria.where(SortField.actionType.toString()).regex(auditDTO.getActionType(), "i"));
         }
 
         if (auditDTO.getFromDate() != null && auditDTO.getToDate() != null) {
-            query.addCriteria(Criteria.where(AuditFilter.datePerformed.toString()).lte(auditDTO.getToDate()).
-                    andOperator(Criteria.where(AuditFilter.datePerformed.toString()).gte(auditDTO.getFromDate())));
+            query.addCriteria(Criteria.where(SortField.datePerformed.toString()).lte(auditDTO.getToDate()).
+                    andOperator(Criteria.where(SortField.datePerformed.toString()).gte(auditDTO.getFromDate())));
         }
 
         return PageableExecutionUtils.getPage(mongoTemplate.find(query, Audit.class), pageable,
