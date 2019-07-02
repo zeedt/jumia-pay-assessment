@@ -88,7 +88,7 @@
         <pluginRepository>
             <id>zeed</id>
             <name>zeed</name>
-            <url>http://localhost:8084/repository/zeed/</url>
+            <url>http://192.168.43.237:8084/repository/zeed/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
