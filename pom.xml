@@ -64,12 +64,12 @@
 
 	</dependencies>
 
-	<!--<distributionManagement>-->
-		<!--<snapshotRepository>-->
-			<!--<id>zeed</id>-->
-			<!--<url>http://192.168.43.237:8084/repository/zeed/</url>-->
-		<!--</snapshotRepository>-->
-	<!--</distributionManagement>-->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>zeed</id>
+			<url>http://host.docker.internal:8084/repository/zeed/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
     <repositories>
         <repository>
