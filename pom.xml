@@ -67,7 +67,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>zeed</id>
-			<url>http://localhost:8085/repository/zeed/</url>
+			<url>http://172.17.0.2:8085/repository/zeed/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
