@@ -55,7 +55,7 @@ public class UserService {
             preareAndSendAuditDataToQueue(null, user, servletRequest);
         } catch (Exception e) {
             logger.error("Error occurred while creating user due to ", e);
-            return "Error occurred while creating user. Please try later or contact Admin";
+            return "Error occurred while creating user... Please try later or contact Admin";
         }
 
         return "User successfully registered";
