@@ -67,7 +67,7 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>zeed</id>
-			<url>http://host.docker.internal:8084/repository/zeed/</url>
+			<url>http://127.0.0.1:8085/repository/zeed/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
@@ -75,7 +75,7 @@
         <repository>
             <id>zeed</id>
             <name>zeed</name>
-            <url>http://localhost:8084/repository/zeed/</url>
+            <url>http://127.0.0.1:8085/repository/zeed/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -88,7 +88,7 @@
         <pluginRepository>
             <id>zeed</id>
             <name>zeed</name>
-            <url>http://192.168.43.237:8084/repository/zeed/</url>
+            <url>http://127.0.0.1:8085/repository/zeed/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
