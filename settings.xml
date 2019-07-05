@@ -10,7 +10,7 @@
                 <repository>
                     <id>zeed</id>
                     <name>zeed</name>
-                    <url>http://192.168.43.237:8085/repository/zeed/</url>
+                    <url>http://192.168.8.100:8085/repository/zeed/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -23,7 +23,7 @@
                 <pluginRepository>
                     <id>zeed</id>
                     <name>zeed</name>
-                    <url>http://192.168.43.237:8085/repository/zeed/</url>
+                    <url>http://192.168.8.100:8085/repository/zeed/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
